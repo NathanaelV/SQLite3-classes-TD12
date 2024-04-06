@@ -1,0 +1,30 @@
+-- SQLite
+
+-- Criar tabela ITEM_SALES (Itens de vendas)
+
+CREATE TABLE ITEM_SALES(
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    SALE_ID INTEGER NOT NULL,
+    PRODUCT_ID INTEGER NOT NULL,
+    QTD INTEGER NOT NULL,
+    SUBTOTAL DECIMAL(10,2) NOT NULL,
+
+    FOREIGN KEY (SALE_ID) REFERENCES SALES (ID),
+    FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCTS (ID)
+);
+
+-- Inserir valores
+INSERT INTO ITEM_SALES (SALE_ID, PRODUCT_ID, QTD, SUBTOTAL)
+    VALUES  (1, 1, 1, 299.90),
+            (2, 4, 1, 5000),
+            (3, 5, 2, 25.8),
+            (4, 6, 2, 799.8),
+            (5, 7, 1, 2244.95),
+            (6, 4, 1, 5000),
+            (6, 2, 1, 199.9);
+
+
+-- Mostrar valores
+SELECT * FROM PRODUCTS;
+SELECT * FROM SALES;
+SELECT * FROM ITEM_SALES;
